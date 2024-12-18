@@ -18,7 +18,6 @@ public class SummaryView extends JFrame implements Observer {
         setLayout(new GridLayout(2, 2));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // UI komponenty
         add(new JLabel("Celkové vklady:"));
         totalDepositsField = new JTextField();
         totalDepositsField.setEditable(false);

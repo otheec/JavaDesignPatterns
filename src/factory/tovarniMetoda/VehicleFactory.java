@@ -3,6 +3,6 @@ package factory.tovarniMetoda;
 import factory.jednoduchaTovarna.Auto;
 
 interface VehicleFactory {
-    Auto createAuto(String type);
-    Motorka createMotorka(String type);
+    Auto createAuto(Class<? extends Auto> autoClass);
+    Motorka createMotorka(Class<? extends Motorka> motorkaClass);
 }

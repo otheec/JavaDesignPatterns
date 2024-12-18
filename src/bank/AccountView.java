@@ -21,7 +21,6 @@ public class AccountView extends JFrame implements Observer {
         setLayout(new GridLayout(5, 2));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // UI komponenty
         add(new JLabel("Account Balance:"));
         balanceField = new JTextField();
         balanceField.setEditable(false);
@@ -43,7 +42,6 @@ public class AccountView extends JFrame implements Observer {
         add(withdrawButton);
         add(resetButton);
 
-        // Action listeners
         depositButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {

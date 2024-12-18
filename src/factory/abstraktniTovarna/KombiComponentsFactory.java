@@ -10,4 +10,9 @@ class KombiComponentsFactory implements VehicleComponentsFactory {
     public PohonKol createPohonKol() {
         return new ZadniPohon();
     }
+
+    @Override
+    public String getDescription() {
+        return "";
+    }
 }

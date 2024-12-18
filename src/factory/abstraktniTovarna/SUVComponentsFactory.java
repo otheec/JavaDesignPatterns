@@ -10,4 +10,9 @@ class SUVComponentsFactory implements VehicleComponentsFactory {
     public PohonKol createPohonKol() {
         return new PredniPohon();
     }
+
+    @Override
+    public String getDescription() {
+        return "";
+    }
 }

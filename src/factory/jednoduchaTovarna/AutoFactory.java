@@ -1,13 +1,11 @@
 package factory.jednoduchaTovarna;
 
 public class AutoFactory {
-    public static Auto createAuto(String type) {
-        switch (type) {
-            case "SUV": return new SUV();
-            case "Kombi": return new Kombi();
-            case "Sedan": return new Sedan();
-            case "Mini": return new Mini();
-            default: throw new IllegalArgumentException("Neznámý typ auta");
+    public static Auto createAuto(Class<? extends Auto> autoClass) {
+        try {
+            return autoClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Cannot create instance for class: " + autoClass.getName(), e);
         }
     }
 }

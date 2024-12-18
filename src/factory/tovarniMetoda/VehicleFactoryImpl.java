@@ -5,17 +5,16 @@ import factory.jednoduchaTovarna.AutoFactory;
 
 class VehicleFactoryImpl implements VehicleFactory {
     @Override
-    public Auto createAuto(String type) {
-        return AutoFactory.createAuto(type);
+    public Auto createAuto(Class<? extends Auto> autoClass) {
+        return AutoFactory.createAuto(autoClass);
     }
 
     @Override
-    public Motorka createMotorka(String type) {
-        switch (type) {
-            case "Cestovní": return new Cestovni();
-            case "Terénní": return new Terenni();
-            case "Skútr": return new Skutr();
-            default: throw new IllegalArgumentException("Neznámý typ motorky");
+    public Motorka createMotorka(Class<? extends Motorka> motorkaClass) {
+        try {
+            return motorkaClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Cannot create instance for class: " + motorkaClass.getName(), e);
         }
     }
 }
